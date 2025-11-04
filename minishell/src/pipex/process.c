@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   process.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asaadi-- <asaadi--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lobriott <lobriott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 15:47:16 by letonnel          #+#    #+#             */
-/*   Updated: 2025/11/04 14:17:40 by asaadi--         ###   ########.fr       */
+/*   Updated: 2025/11/04 16:17:00 by lobriott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	pre_exec(t_command *cmd, t_pipe *pipex)
 				line = ft_join(line, cmd->next->cmd);
 				cmd = cmd->next;
 			}
-			node = createnode_pipex(line);
+			node = createnode_pipex(line);//
 			free(line);
 			addback_pipex(&head, node);
 		}

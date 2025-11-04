@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asaadi-- <asaadi--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lobriott <lobriott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 10:28:05 by asaadi--          #+#    #+#             */
-/*   Updated: 2025/10/30 15:58:28 by asaadi--         ###   ########.fr       */
+/*   Updated: 2025/11/04 16:36:10 by lobriott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	free_array(char **command)
 		while (i >= 0)
 		{
 			if (command[i] != NULL)
-				free(command[i]);
+				free(command[i]);//
 			i--;
 		}
 	}

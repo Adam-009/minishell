@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asaadi-- <asaadi--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lobriott <lobriott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 09:55:37 by asaadi--          #+#    #+#             */
-/*   Updated: 2025/11/03 11:29:41 by asaadi--         ###   ########.fr       */
+/*   Updated: 2025/11/04 16:41:00 by lobriott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ typedef struct s_Minishell
 	int			exit_status;
 }	t_Minishell;
 
-void	tokenizer(char *command, t_Minishell *minishell);
+int		tokenizer(char *command, t_Minishell *minishell);
 int		parsing(char **command);
 void	free_array(char **array);
 void	free_list_cmd(t_Minishell *minishell);

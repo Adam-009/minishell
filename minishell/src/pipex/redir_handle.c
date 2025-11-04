@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   redir_handle.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asaadi-- <asaadi--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lobriott <lobriott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 12:50:35 by letonnel          #+#    #+#             */
-/*   Updated: 2025/10/30 11:44:06 by asaadi--         ###   ########.fr       */
+/*   Updated: 2025/11/04 16:15:09 by lobriott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	check_redir(t_command *cmd, t_pipe *pipex)
 	t_cmd	*tmp;
 
 	tmp = pipex->head_cmd;
-	while (cmd)
+	while (cmd && cmd->next)
 	{
 		/*printf("TEST %i\n", tmp->infile);*/
 		/*pipex->head_cmd = tmp;*/

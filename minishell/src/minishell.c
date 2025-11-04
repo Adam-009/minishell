@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asaadi-- <asaadi--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lobriott <lobriott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 10:06:10 by asaadi--          #+#    #+#             */
-/*   Updated: 2025/11/03 13:17:52 by asaadi--         ###   ########.fr       */
+/*   Updated: 2025/11/04 16:42:10 by lobriott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ int	main(int argc, char **argv, char **envp)
 		dup2(minishell.fd[0], STDIN_FILENO);
 		dup2(minishell.fd[1], STDOUT_FILENO);
 		minishell.command = NULL;
+		
 		if (isatty(STDIN_FILENO) && isatty(STDOUT_FILENO)
 			&& isatty(STDERR_FILENO))
 			line = readline("minishell$ ");
@@ -74,7 +75,10 @@ int	main(int argc, char **argv, char **envp)
 		else if (line)
 		{
 			history(line);
-			tokenizer(line, &minishell);
+			if (tokenizer(line, &minishell) == -1){
+				free(line);
+				continue;
+			}
 			exit_s = pipex(&minishell);
 		}
 		free(line);

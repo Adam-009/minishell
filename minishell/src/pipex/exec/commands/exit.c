@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asaadi-- <asaadi--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lobriott <lobriott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 13:47:26 by asaadi--          #+#    #+#             */
-/*   Updated: 2025/11/04 15:11:52 by asaadi--         ###   ########.fr       */
+/*   Updated: 2025/11/04 15:51:34 by lobriott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,12 +104,12 @@ void	f_exit(char **cmd_args, t_minishell *mini, int exit_now, t_pipe *pip)
 	mini->exit_status = status;
 	if (exit_now == 1)
 	{
-		free_array(cmd_args);
+		free_array(cmd_args);//
 		free_array(mini->array);
 		free_list_mini_env(mini->mini_env);
 		free_list_cmd(mini);
 		free_cmd_list(pip->head_cmd);
-		free(pip->fd);
+		free(pip->fd);//
 		free(pip->pid);
 		init_fds(mini, 1);
 		exit(status);
@@ -123,6 +123,6 @@ void	ft_exit(int code, t_minishell *mini, int exit_now, t_pipe *pip)
 	args[0] = "exit";
 	args[1] = ft_itoa(code);
 	args[2] = NULL;
-	f_exit(args, mini, exit_now, pip);
+	f_exit(args, mini, exit_now, pip);//
 	free(args[1]);
 }

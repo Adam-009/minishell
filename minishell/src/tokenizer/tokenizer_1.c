@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tokenizer_1.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: asaadi-- <asaadi--@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lobriott <lobriott@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 20:01:48 by asaadi--          #+#    #+#             */
-/*   Updated: 2025/10/30 11:13:18 by asaadi--         ###   ########.fr       */
+/*   Updated: 2025/11/04 16:46:06 by lobriott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,20 +102,23 @@ void	malloc_inside_array(char **array, char *command)
 	}
 }
 
-void	tokenizer(char *command, t_minishell *minishell)
+int tokenizer(char *command, t_minishell *minishell)
 {
 	int	argc;
 	int	i;
 
 	argc = count_arg(command);
 	if (argc == 0)
-		return ;
+		return (-1);
+	if (!ft_strncmp("\'\'", command, 3) || !ft_strncmp("\"\"", command, 3))
+		return (printf("minishell: : command not found\n"), minishell->exit_status = 127, -1);
 	minishell->array = malloc(sizeof(char *) * (argc + 1));
 	if (!minishell->array)
-		return ;
+		return(0);
 	i = -1;
 	while (++i <= argc)
 		minishell->array[i] = NULL;
 	malloc_inside_array(minishell->array, command);
 	init_command_list(&minishell->command, minishell->array);
+	return (0);
 }
