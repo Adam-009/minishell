@@ -31,7 +31,6 @@ t_mini_env	*createnode_mini_env_list(char *array)
 	}
 	else
 		newnode->value = get_value(array);
-	newnode->exported = 0;
 	newnode->next = NULL;
 	newnode->prev = NULL;
 	return (newnode);
